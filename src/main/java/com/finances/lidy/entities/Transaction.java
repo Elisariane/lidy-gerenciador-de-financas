@@ -1,7 +1,7 @@
-package com.finances.lidy.models;
+package com.finances.lidy.entities;
 
-import com.finances.lidy.models.enums.FrequencyTransaction;
-import com.finances.lidy.models.enums.TypeTransaction;
+import com.finances.lidy.entities.enums.FrequencyTransaction;
+import com.finances.lidy.entities.enums.TypeTransaction;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,7 +20,7 @@ public class Transaction {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private String name;
+    private String nameTransaction;
 
     @Temporal(TemporalType.DATE)
     private  Date dateTransaction;
@@ -32,20 +32,20 @@ public class Transaction {
 
     @ManyToOne
     @JoinColumn(name = "account_id")
-    private Account account;
+    private Account accountId;
 
     @ManyToOne
     @JoinColumn(name = "category_id")
-    private Category category;
+    private Category categoryId;
 
-    private double value_transaction;
-    private boolean repeat_transaction;
-    private int start_installment;
-    private int final_installment;
-    private int number_repetitions;
+    private double valueTransaction;
+    private boolean repeatTransaction;
+    private int startInstallment;
+    private int finalInstallment;
+    private int numberRepetitions;
 
     @Enumerated(EnumType.STRING)
     private FrequencyTransaction frequencyTransaction;
 
-    private boolean repeat_endlessly;
+    private boolean repeatEndlessly;
 }

@@ -1,4 +1,4 @@
-package com.finances.lidy.models.enums;
+package com.finances.lidy.entities.enums;
 
 public enum TypeTransaction {
     EXPANSE,

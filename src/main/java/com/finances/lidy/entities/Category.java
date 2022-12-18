@@ -1,26 +1,27 @@
-package com.finances.lidy.models;
+package com.finances.lidy.entities;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "tb_account")
-public class Account {
+@Table(name = "tb_category")
+public class Category {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
-    private double initialValue;
-    private boolean active;
+    private boolean isSubCategory;
 
-    @ManyToOne
-    @JoinColumn(name = "user_owner_id")
-    private User userOwner;
+    @OneToMany
+    @JoinColumn(name = "category_id")
+    private List<Category> subCategory;
 
 }
